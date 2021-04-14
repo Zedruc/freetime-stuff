@@ -1,13 +1,16 @@
-from PIL import Image
-import os
-import time
-import cv2
-from playsound import playsound
-from os.path import isfile, join
+try:
+    from PIL import Image
+    import os
+    import time
+    import cv2
+    from playsound import playsound
+    from os.path import isfile, join
+except ImportError:
+    print("Import Error: Please run following command:\npip install -r reqs.txt")
 
 ##################
 VIDEO = 'bad_apple.mp4'
-DELAY = 0.016666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
+DELAY = 0.014814814813
 ##################
 
 #frames_dir = "data"
@@ -99,40 +102,32 @@ def runner(path):
 
     # To print on console
     print(image)
+    os.system('cls' if os.name == 'nt' else 'clear')
 
-    # Else, to write into a file
-    # Note: This text file will be created by default under
-    #       the same directory as this python file,
-    #       NOT in the directory from where the image is pulled.
-    # f = open('img.txt', 'w')
-    # f.write(image)
-    # f.close()
+
+def ascii(image):
+    image = do(image)
+
+    # To print on console
+    print(image)
 
 
 '''
-method main():
-    - reads input from console
-    - profit
+method ascii():
+    - takes in image
+    - passes it to do() method
 '''
-
-# for frame in frames:
-# runner(f'data/{frame}')
-# print(frame)
-# time.sleep(0.06)
 
 # Opens the Video file
 cap = cv2.VideoCapture(VIDEO)
 i = 0
-#playsound("bad_apple.mp3", False)
 # time.sleep(1.7)
 while(cap.isOpened()):
     ret, frame = cap.read()
     if ret == False:
         break
-    cv2.imwrite('data/frame'+str(i)+'.jpg', frame)
-    runner('data/frame'+str(i)+'.jpg')
+    ascii(Image.fromarray(frame))
     i += 1
-    # print('\033c')
     time.sleep(DELAY)
 
 cap.release()
