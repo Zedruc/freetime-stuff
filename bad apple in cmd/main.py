@@ -10,7 +10,7 @@ except ImportError:
 
 ##################
 VIDEO = 'bad_apple.mp4'
-DELAY = 0.014814814813
+DELAY = 0.014814814813 * .95378  # 1.3311
 ##################
 
 #frames_dir = "data"
@@ -101,8 +101,7 @@ def runner(path):
     image = do(image)
 
     # To print on console
-    print(image)
-    os.system('cls' if os.name == 'nt' else 'clear')
+    # print(image)
 
 
 def ascii(image):
@@ -127,6 +126,8 @@ while(cap.isOpened()):
     if ret == False:
         break
     ascii(Image.fromarray(frame))
+    cv2.imshow("frame", frame)
+    cv2.waitKey(1)
     i += 1
     time.sleep(DELAY)
 
