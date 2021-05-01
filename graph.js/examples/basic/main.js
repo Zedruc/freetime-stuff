@@ -1,4 +1,4 @@
-import GraphJS from "../../src/index.js";
+import GraphJS from "../../src/GraphJS.js";
 var data = [
     [100, 200],
     [200, 300],

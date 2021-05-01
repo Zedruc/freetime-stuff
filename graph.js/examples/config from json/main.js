@@ -1,4 +1,4 @@
-import GraphJS from "../../src/index.js";
+import GraphJS from "../../src/GraphJS.js";
 
 // Load data from config.json
 GraphJS.loadFromConfigJSON("./config.json");
