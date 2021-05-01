@@ -3,13 +3,13 @@ try:
     import os
     import time
     import cv2
-    from playsound import playsound
+    from audioplayer import AudioPlayer
     from os.path import isfile, join
 except ImportError:
     print("Import Error: Please run following command:\npip install -r reqs.txt")
 
 ##################
-VIDEO = 'bad_apple.mp4'
+VIDEO = 'siis.mp4'
 DELAY = 0.014814814813 * .95378  # 1.3311
 ##################
 
@@ -119,6 +119,8 @@ method ascii():
 
 # Opens the Video file
 cap = cv2.VideoCapture(VIDEO)
+#audioplayer_ = AudioPlayer("bad_apple.mp3")
+#audioplayer_.play(loop=False, block=False)
 i = 0
 # time.sleep(1.7)
 while(cap.isOpened()):
