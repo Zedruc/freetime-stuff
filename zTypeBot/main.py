@@ -23,9 +23,8 @@ time.sleep(2)
 mouse.press(Button.left)  # To make 100% sure the browser window is focused
 mouse.release(Button.left)
 
-dir_path = os.getcwd()
-pytesseract.pytesseract.tesseract_cmd = r'{0}\tesseract\Tesseract-OCR\tesseract.exe'.format(
-    dir_path)
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+# Programm Ordner
 
 
 def screen():
